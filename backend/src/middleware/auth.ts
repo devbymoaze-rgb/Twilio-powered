@@ -13,6 +13,9 @@ declare global {
       user?: RequestUser;
     }
   }
+
+
+  
 }
 
 function readToken(req: Request): string | null {
