@@ -5,6 +5,8 @@ import { User } from "../models/User";
 import type { AuthPayload, RequestUser, UserRole } from "../types";
 import { ForbiddenError, UnauthorizedError } from "../utils/errors";
 
+
+
 declare global {
   namespace Express {
     interface Request {
