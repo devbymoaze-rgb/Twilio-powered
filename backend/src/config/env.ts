@@ -4,12 +4,42 @@ import dotenv from "dotenv";
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 dotenv.config();
 
-function required(name: string, fallback?: string): string {
-  const value = process.env[name] ?? fallback;
+const isProd = (process.env.NODE_ENV ?? "development") === "production";
+
+function stripSlash(url: string) {
+  return url.replace(/\/$/, "");
+}
+
+function required(name: string, devFallback?: string): string {
+  const value = process.env[name] ?? (isProd ? undefined : devFallback);
   if (!value) {
     throw new Error(`Missing required environment variable: ${name}`);
   }
   return value;
+}
+
+function railwayHttpsOrigin() {
+  const domain = process.env.RAILWAY_PUBLIC_DOMAIN;
+  return domain ? `https://${domain}` : undefined;
+}
+
+const frontendUrl = stripSlash(
+  required("FRONTEND_URL", "http://127.0.0.1:3000")
+);
+
+const extraOrigins = (process.env.CORS_ORIGINS ?? "")
+  .split(",")
+  .map((item) => stripSlash(item.trim()))
+  .filter(Boolean);
+
+const publicApiUrl = stripSlash(
+  process.env.PUBLIC_API_URL ??
+    railwayHttpsOrigin() ??
+    (isProd ? "" : "http://127.0.0.1:4000")
+);
+
+if (isProd && !publicApiUrl) {
+  throw new Error("Missing required environment variable: PUBLIC_API_URL");
 }
 
 export const env = {
@@ -22,10 +52,13 @@ export const env = {
     "ENCRYPTION_KEY",
     "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
   ),
-  frontendUrl: process.env.FRONTEND_URL ?? "http://localhost:3000",
-  publicApiUrl: process.env.PUBLIC_API_URL ?? "http://localhost:4000",
+  frontendUrl,
+  frontendOrigins: Array.from(
+    new Set([frontendUrl, "http://127.0.0.1:3000", "http://localhost:3000", ...extraOrigins])
+  ),
+  publicApiUrl,
   openaiApiKey: process.env.OPENAI_API_KEY ?? "",
   openaiModel: process.env.OPENAI_MODEL ?? "gpt-4o-mini",
-  cookieSecure: process.env.COOKIE_SECURE === "true",
-  isProd: (process.env.NODE_ENV ?? "development") === "production",
+  cookieSecure: process.env.COOKIE_SECURE === "true" || (isProd && process.env.COOKIE_SECURE !== "false"),
+  isProd,
 };

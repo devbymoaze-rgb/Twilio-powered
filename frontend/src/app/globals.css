@@ -18,6 +18,15 @@ body {
 
 body {
   font-feature-settings: "ss01" on, "cv11" on;
+  letter-spacing: -0.011em;
+}
+
+h1,
+h2,
+h3,
+.font-serif,
+.font-display {
+  letter-spacing: -0.035em;
 }
 
 ::selection {

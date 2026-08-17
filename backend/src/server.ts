@@ -9,7 +9,7 @@ async function main() {
   await seedDemoWorkspace();
   const app = createApp();
   startScheduler();
-  const server = app.listen(env.port, () => {
+  const server = app.listen(env.port, "0.0.0.0", () => {
     console.log(`TextPulse API listening on ${env.port}`);
   });
   server.on("error", (error: NodeJS.ErrnoException) => {

@@ -47,8 +47,8 @@ export default function NewCampaignPage() {
 
   return (
     <form onSubmit={onSubmit} className="mx-auto max-w-2xl px-6 py-8">
-      <h1 className="font-serif text-4xl">New campaign</h1>
-      <div className="mt-8 space-y-4 rounded-2xl border border-stone-200 bg-white p-6">
+      <h1 className="font-serif text-4xl font-semibold">New campaign</h1>
+      <div className="mt-8 space-y-4 rounded-card border border-stone-200 bg-white p-6">
         <div>
           <Label>Campaign name</Label>
           <Input name="name" required />

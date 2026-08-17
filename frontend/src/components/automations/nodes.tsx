@@ -4,7 +4,7 @@ import { Handle, Position, type NodeProps } from "@xyflow/react";
 
 export function TriggerNode({ data }: NodeProps) {
   return (
-    <div className="w-56 rounded-2xl border border-stone-200 bg-white px-4 py-3 shadow-card">
+    <div className="w-56 rounded-card border border-stone-200 bg-white px-4 py-3 shadow-card">
       <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-faint">When</p>
       <p className="mt-1 text-sm font-medium">{String(data.label ?? "Trigger")}</p>
       <Handle type="source" position={Position.Right} id="out" className="!bg-pulse" />
@@ -14,7 +14,7 @@ export function TriggerNode({ data }: NodeProps) {
 
 export function ConditionNode({ data }: NodeProps) {
   return (
-    <div className="w-56 rounded-2xl border border-stone-200 bg-stone-50 px-4 py-3">
+    <div className="w-56 rounded-card border border-stone-200 bg-stone-50 px-4 py-3">
       <Handle type="target" position={Position.Left} className="!bg-ink" />
       <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-faint">If</p>
       <p className="mt-1 text-sm font-medium">{String(data.label ?? "Condition")}</p>
@@ -30,7 +30,7 @@ export function ConditionNode({ data }: NodeProps) {
 
 export function ActionNode({ data }: NodeProps) {
   return (
-    <div className="w-56 rounded-2xl border border-pulse/20 bg-pulse-soft px-4 py-3">
+    <div className="w-56 rounded-card border border-pulse/20 bg-pulse-soft px-4 py-3">
       <Handle type="target" position={Position.Left} className="!bg-pulse" />
       <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-pulse">Then</p>
       <p className="mt-1 text-sm font-medium">{String(data.label ?? "Action")}</p>

@@ -23,7 +23,7 @@ export function EmptyState({
 
 export function ErrorState({ message, onRetry }: { message: string; onRetry?: () => void }) {
   return (
-    <div className="flex items-start gap-3 rounded-card border border-red-200 bg-red-50 px-5 py-4 text-sm text-danger">
+    <div className="flex flex-col items-start gap-3 rounded-card border border-danger/20 bg-danger-soft px-5 py-4 text-sm text-danger">
       <AlertCircle size={16} className="mt-0.5 shrink-0" />
       <div>
         <p>{message}</p>

@@ -1,6 +1,6 @@
 export function ConversationVisual() {
   return (
-    <div className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-card">
+    <div className="overflow-hidden rounded-card border border-stone-200 bg-white shadow-card">
       <div className="border-b border-stone-200 px-5 py-3">
         <p className="text-sm font-medium">Maya Chen · +1 415 555 0198</p>
         <p className="text-xs text-ink-faint">Intent: pricing · Sentiment: positive · Score 82</p>

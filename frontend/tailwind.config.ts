@@ -20,21 +20,27 @@ const config: Config = {
           DEFAULT: "#2563EB",
           bright: "#3B82F6",
           soft: "#EFF6FF",
-          deep: "#0F172A",
+          deep: "#1D4ED8",
         },
-        sand: {
+        success: {
+          DEFAULT: "#16A34A",
+          soft: "#F0FDF4",
+        },
+        warning: {
           DEFAULT: "#F59E0B",
-          soft: "#FEF3C7",
+          soft: "#FFFBEB",
           deep: "#B45309",
         },
-        success: "#16A34A",
-        warning: "#F59E0B",
-        danger: "#DC2626",
+        danger: {
+          DEFAULT: "#DC2626",
+          soft: "#FEF2F2",
+        },
         surface: "#FFFFFF",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        serif: ["var(--font-serif)", "Georgia", "serif"],
+        serif: ["var(--font-display)", "var(--font-sans)", "sans-serif"],
+        display: ["var(--font-display)", "var(--font-sans)", "sans-serif"],
       },
       borderRadius: {
         card: "12px",

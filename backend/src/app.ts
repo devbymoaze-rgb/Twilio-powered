@@ -27,7 +27,13 @@ export function createApp() {
   app.use(helmet());
   app.use(
     cors({
-      origin: env.frontendUrl,
+      origin(origin, callback) {
+        if (!origin || env.frontendOrigins.includes(origin)) {
+          callback(null, true);
+          return;
+        }
+        callback(null, false);
+      },
       credentials: true,
     })
   );
@@ -43,6 +49,38 @@ export function createApp() {
     legacyHeaders: false,
   });
   app.use("/api", limiter);
+
+  app.get("/", (req, res) => {
+    const frontend = env.frontendUrl;
+    const payload = {
+      success: true,
+      service: "textpulse-api",
+      health: "/health",
+      frontend,
+      message: "TextPulse API is running. Open the frontend URL to use the product.",
+    };
+
+    const accept = req.headers.accept ?? "";
+    if (accept.includes("text/html")) {
+      const safeFrontend = escapeHtml(frontend);
+      res
+        .type("html")
+        .send(`<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; url=${safeFrontend}" />
+    <title>TextPulse API</title>
+  </head>
+  <body style="font-family:sans-serif;padding:48px;background:#F8FAFC;color:#0F172A">
+    <p>This is the API. Opening the app at <a href="${safeFrontend}">${safeFrontend}</a></p>
+  </body>
+</html>`);
+      return;
+    }
+
+    res.json(payload);
+  });
 
   app.get("/health", (_req, res) => {
     res.json({ ok: true, service: "textpulse-api" });
@@ -62,6 +100,26 @@ export function createApp() {
   app.use("/api/knowledge", knowledgeRoutes);
   app.use("/api/settings", settingsRoutes);
 
+  app.use((req, res) => {
+    res.status(404).json({
+      success: false,
+      error: `No route for ${req.method} ${req.path}`,
+      code: "NOT_FOUND",
+      hint:
+        req.path === "/"
+          ? "Open the frontend app instead of the API root."
+          : "API routes live under /api. Health check is GET /health.",
+    });
+  });
+
   app.use(errorHandler);
   return app;
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
 }

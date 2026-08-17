@@ -105,12 +105,10 @@ export default function ConversationsPage() {
   }
 
   return (
-    <div className="flex h-[calc(100vh-0px)] min-h-[640px] flex-col md:h-screen md:flex-row">
+    <div className="flex h-full min-h-[640px] flex-col md:flex-row">
       <aside className="flex w-full flex-col border-b border-stone-200 bg-white md:w-80 md:border-b-0 md:border-r">
         <div className="border-b border-stone-200 p-4">
-          <h1 className="font-serif text-2xl">Conversations</h1>
           <Input
-            className="mt-3"
             placeholder="Search name or number"
             value={q}
             onChange={(e) => setQ(e.target.value)}

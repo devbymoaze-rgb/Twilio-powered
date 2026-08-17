@@ -179,7 +179,7 @@ export default function OnboardingPage() {
       </div>
       <div className="mx-auto max-w-xl px-5 py-12">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-pulse">Onboarding</p>
-        <h1 className="mt-3 font-serif text-4xl">{step.title}</h1>
+        <h1 className="mt-3 font-serif text-4xl font-semibold">{step.title}</h1>
         <p className="mt-2 text-ink-muted">{step.body}</p>
 
         <div className="mt-8 space-y-4">

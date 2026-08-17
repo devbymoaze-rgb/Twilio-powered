@@ -27,9 +27,11 @@ export function PageHeader({
     <div className="flex flex-wrap items-end justify-between gap-4">
       <div>
         {eyebrow ? (
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-pulse">{eyebrow}</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-pulse">{eyebrow}</p>
         ) : null}
-        <h1 className="mt-2 font-serif text-4xl tracking-tight text-ink">{title}</h1>
+        <h1 className="mt-2 font-serif text-3xl font-semibold tracking-tight text-ink md:text-4xl">
+          {title}
+        </h1>
       </div>
       {action}
     </div>

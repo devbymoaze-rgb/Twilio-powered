@@ -16,7 +16,7 @@ export function clearToken() {
 }
 
 export function apiUrl() {
-  return (process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000").replace(/\/$/, "");
+  return (process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:4000").replace(/\/$/, "");
 }
 
 export class ApiError extends Error {
@@ -46,11 +46,13 @@ export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
   if (res.status === 204) return undefined as T;
   const data = (await res.json().catch(() => ({}))) as {
     error?: string;
+    message?: string;
     code?: string;
   } & T;
 
   if (!res.ok) {
-    throw new ApiError(data.error ?? "Request failed", res.status, data.code);
+    const message = data.error ?? data.message ?? "Request failed";
+    throw new ApiError(message, res.status, data.code);
   }
   return data;
 }

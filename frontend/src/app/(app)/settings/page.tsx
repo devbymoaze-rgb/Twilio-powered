@@ -63,7 +63,7 @@ export default function SettingsPage() {
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-8">
-      <h1 className="font-serif text-4xl">Settings</h1>
+      <h1 className="font-serif text-4xl font-semibold">Settings</h1>
       <div className="mt-6 flex flex-wrap gap-2">
         {TABS.map((t) => (
           <button
@@ -77,7 +77,7 @@ export default function SettingsPage() {
         ))}
       </div>
 
-      <div className="mt-8 rounded-2xl border border-stone-200 bg-white p-6">
+      <div className="mt-8 rounded-card border border-stone-200 bg-white p-6">
         {tab === "Business" && (
           <form
             className="space-y-3"
@@ -320,7 +320,7 @@ export default function SettingsPage() {
               <div
                 key={p.id}
                 className={cn(
-                  "rounded-2xl border p-4",
+                  "rounded-card border p-4",
                   billing.plan === p.id ? "border-pulse bg-pulse-soft" : "border-stone-200"
                 )}
               >

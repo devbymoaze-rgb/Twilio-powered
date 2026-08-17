@@ -48,13 +48,13 @@ export default function AssistantPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-8">
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-pulse">AI Assistant</p>
-      <h1 className="mt-2 font-serif text-4xl">Answer first. Qualify when it matters.</h1>
+      <h1 className="mt-2 font-serif text-4xl font-semibold">Answer first. Qualify when it matters.</h1>
       <p className="mt-3 text-sm text-ink-muted">
         The model is instructed not to ask a qualification question after every SMS. It answers, then
         escalates when your rules say a human should take over.
       </p>
 
-      <div className="mt-8 space-y-4 rounded-2xl border border-stone-200 bg-white p-6">
+      <div className="mt-8 space-y-4 rounded-card border border-stone-200 bg-white p-6">
         <label className="flex items-center gap-2 text-sm">
           <input
             type="checkbox"

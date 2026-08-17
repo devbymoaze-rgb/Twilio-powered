@@ -144,7 +144,7 @@ export default function AutomationBuilderPage() {
   if (!automation) return <div className="p-8"><Skeleton className="h-80" /></div>;
 
   return (
-    <div className="flex h-screen flex-col">
+    <div className="flex h-full min-h-0 flex-col">
       <header className="flex flex-wrap items-center justify-between gap-3 border-b border-stone-200 bg-white px-5 py-3">
         <div className="flex items-center gap-3">
           <Input value={name} onChange={(e) => setName(e.target.value)} className="w-56" />

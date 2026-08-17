@@ -24,7 +24,7 @@ export default function CampaignsPage() {
       <div className="flex items-end justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-pulse">Campaigns</p>
-          <h1 className="mt-2 font-serif text-4xl">Outbound, with a paper trail</h1>
+          <h1 className="mt-2 font-serif text-4xl font-semibold">Outbound, with a paper trail</h1>
         </div>
         <Link href="/campaigns/new">
           <Button>New campaign</Button>
@@ -49,7 +49,7 @@ export default function CampaignsPage() {
       ) : (
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {campaigns.map((c) => (
-            <Link key={c._id} href={`/campaigns/${c._id}`} className="rounded-2xl border border-stone-200 bg-white p-5">
+            <Link key={c._id} href={`/campaigns/${c._id}`} className="rounded-card border border-stone-200 bg-white p-5">
               <div className="flex justify-between">
                 <h2 className="font-medium">{c.name}</h2>
                 <span className="text-xs capitalize text-ink-faint">{c.status}</span>

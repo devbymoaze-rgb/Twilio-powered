@@ -102,8 +102,8 @@ export default function OverviewPage() {
       <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map(([label, value]) => (
           <Card key={label} className="px-4 py-5">
-            <p className="text-xs text-ink-faint">{label}</p>
-            <p className="mt-2 text-2xl tracking-tight text-ink">{value}</p>
+            <p className="text-xs font-medium text-ink-faint">{label}</p>
+            <p className="mt-2 font-serif text-2xl font-semibold tracking-tight text-ink">{value}</p>
           </Card>
         ))}
       </section>

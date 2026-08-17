@@ -5,9 +5,9 @@ type Tone = "neutral" | "blue" | "success" | "warning" | "danger";
 const tones: Record<Tone, string> = {
   neutral: "bg-stone-100 text-ink-muted",
   blue: "bg-pulse-soft text-pulse",
-  success: "bg-green-50 text-success",
-  warning: "bg-sand-soft text-sand-deep",
-  danger: "bg-red-50 text-danger",
+  success: "bg-success-soft text-success",
+  warning: "bg-warning-soft text-warning-deep",
+  danger: "bg-danger-soft text-danger",
 };
 
 export function Badge({

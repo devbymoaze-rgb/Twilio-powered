@@ -39,7 +39,7 @@ export default function RegisterPage() {
         <div className="pointer-events-none absolute -left-8 bottom-16 h-48 w-48 rounded-full bg-pulse/20 blur-3xl" />
         <Logo light />
         <div className="relative">
-          <p className="font-serif text-5xl leading-tight">Ten minutes from account to first automation.</p>
+          <p className="font-serif text-5xl font-semibold leading-tight">Ten minutes from account to first automation.</p>
           <p className="mt-4 max-w-sm text-sm text-white/55">
             Twilio is optional during setup. You can skip it and still explore the full product.
           </p>
@@ -48,7 +48,7 @@ export default function RegisterPage() {
       </div>
       <div className="flex items-center justify-center bg-stone-50 px-6 py-16">
         <form onSubmit={onSubmit} className="w-full max-w-md">
-          <h1 className="font-serif text-4xl">Create your account</h1>
+          <h1 className="font-serif text-4xl font-semibold">Create your account</h1>
           <p className="mt-2 text-sm text-ink-muted">
             Already have one?{" "}
             <Link href="/login" className="font-medium text-pulse">

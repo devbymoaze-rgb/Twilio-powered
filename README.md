@@ -28,9 +28,9 @@ npm install
 npm run dev
 ```
 
-Frontend: http://localhost:3000  
-API: http://localhost:4000  
-Health: http://localhost:4000/health
+Open the app at **http://127.0.0.1:3000** (use this exact address on Windows if WSL is installed — `localhost:3000` can hit another program).  
+API: http://127.0.0.1:4000  
+Health: http://127.0.0.1:4000/health
 
 ### Demo login (no Twilio required)
 
@@ -49,28 +49,63 @@ node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 
 ## Railway (separate services)
 
-Deploy **two** Railway services from this repo.
+Deploy **two** services from this GitHub repo. Do not deploy the repo root — each service needs its own Root Directory.
 
-### API service
+### 1. Push the code
 
-- Root directory: `backend`
-- Build: `npm install && npm run build`
-- Start: `npm start`
-- Variables: `MONGODB_URI`, `JWT_SECRET`, `ENCRYPTION_KEY`, `FRONTEND_URL`, `PUBLIC_API_URL`, `OPENAI_API_KEY`, `OPENAI_MODEL`, `COOKIE_SECURE=true`, `NODE_ENV=production`
+Commit and push to GitHub, then in [Railway](https://railway.app) click **New Project → Deploy from GitHub repo**.
 
-`PUBLIC_API_URL` must be the public HTTPS origin of the API (used for Twilio webhook URLs).
+### 2. API service
 
-### Web service
+1. Add a service from this repo.
+2. Set **Root Directory** to `backend`.
+3. Generate a public domain (**Settings → Networking → Generate domain**).
+4. Add variables:
 
-- Root directory: `frontend`
-- Build: `npm install && npm run build`
-- Start: `npm start`
-- Variables: `NEXT_PUBLIC_API_URL` = public API origin
+| Variable | Value |
+|---|---|
+| `NODE_ENV` | `production` |
+| `MONGODB_URI` | Atlas connection string |
+| `JWT_SECRET` | long random string |
+| `ENCRYPTION_KEY` | 64 hex characters (`node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"`) |
+| `FRONTEND_URL` | `https://your-web.up.railway.app` (no trailing slash) |
+| `PUBLIC_API_URL` | `https://your-api.up.railway.app` (no trailing slash) |
+| `OPENAI_API_KEY` | your OpenAI key |
+| `OPENAI_MODEL` | `gpt-4o-mini` |
+| `COOKIE_SECURE` | `true` |
 
-After the API is live, connect Twilio in Settings. Selecting a number writes inbound + status callback URLs to:
+You can set `FRONTEND_URL` after the web service has a domain, then redeploy the API.
+
+In MongoDB Atlas, allow Railway to connect: **Network Access → Add IP → `0.0.0.0/0`**.
+
+Health check: `GET /health`
+
+### 3. Web service
+
+1. Add a **second** service from the same repo.
+2. Set **Root Directory** to `frontend`.
+3. Generate a public domain.
+4. Add this variable **before the first successful build** (Next.js inlines it at build time):
+
+| Variable | Value |
+|---|---|
+| `NEXT_PUBLIC_API_URL` | `https://your-api.up.railway.app` (no trailing slash) |
+
+5. Redeploy the web service after the variable is set.
+6. Copy the web domain into the API’s `FRONTEND_URL` and redeploy the API.
+
+### 4. Confirm
+
+- Web: `https://your-web.up.railway.app`
+- API health: `https://your-api.up.railway.app/health`
+- Demo login: `demo@textpulse.com` / `Demo123456!`
+
+Then connect Twilio in **Settings**. Selecting a number writes:
 
 - `POST {PUBLIC_API_URL}/api/webhooks/twilio/inbound`
 - `POST {PUBLIC_API_URL}/api/webhooks/twilio/status`
+
+If the frontend domain changes later, add it to `CORS_ORIGINS` (comma-separated) or update `FRONTEND_URL`.
 
 ## Compliance
 

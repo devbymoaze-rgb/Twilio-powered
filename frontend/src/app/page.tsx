@@ -53,7 +53,7 @@ export default function LandingPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-pulse">
               AI-powered SMS automation
             </p>
-            <h1 className="mt-4 font-serif text-5xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
+            <h1 className="mt-4 font-serif text-5xl font-semibold leading-[1.05] md:text-6xl">
               Turn Every Text Into a Conversation.
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-ink-muted">
@@ -89,7 +89,7 @@ export default function LandingPage() {
         <div className="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-2 md:items-center">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-pulse">Inbox</p>
-            <h2 className="mt-3 font-serif text-4xl">A conversation, not a ticket dump.</h2>
+            <h2 className="mt-3 font-serif text-4xl font-semibold">A conversation, not a ticket dump.</h2>
             <p className="mt-4 leading-relaxed text-ink-muted">
               Every inbound SMS lands with intent, sentiment, lead score, and an AI summary. Reply
               yourself, generate a draft, or hand the thread to a teammate.
@@ -110,7 +110,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-6xl px-5">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-pulse">Automations</p>
-            <h2 className="mt-3 font-serif text-4xl">WHEN → IF → THEN, in plain language.</h2>
+            <h2 className="mt-3 font-serif text-4xl font-semibold">WHEN → IF → THEN, in plain language.</h2>
             <p className="mt-4 max-w-2xl text-ink-muted">
               Build workflows around the path that closes: contact, message, understanding, response,
               qualification, human handoff.
@@ -126,7 +126,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-6xl px-5">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-pulse">Analytics</p>
-            <h2 className="mt-3 font-serif text-4xl">Campaigns you can defend in a meeting.</h2>
+            <h2 className="mt-3 font-serif text-4xl font-semibold">Campaigns you can defend in a meeting.</h2>
           </Reveal>
           <div className="mt-10 grid gap-4 md:grid-cols-4">
             {[
@@ -149,7 +149,7 @@ export default function LandingPage() {
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-5">
           <Reveal>
-            <h2 className="font-serif text-4xl">Built for how teams actually text.</h2>
+            <h2 className="font-serif text-4xl font-semibold">Built for how teams actually text.</h2>
           </Reveal>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {useCases.map(([t, d], i) => (
@@ -166,7 +166,7 @@ export default function LandingPage() {
 
       <section id="how" className="border-t border-stone-200 bg-ink py-20 text-white">
         <div className="mx-auto max-w-6xl px-5">
-          <h2 className="font-serif text-4xl">How it works</h2>
+          <h2 className="font-serif text-4xl font-semibold">How it works</h2>
           <ol className="mt-10 grid gap-6 md:grid-cols-4">
             {[
               ["Connect Twilio", "Bring your account and SMS number. Credentials stay on the server."],
@@ -186,7 +186,7 @@ export default function LandingPage() {
 
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-5">
-          <h2 className="font-serif text-4xl">Integrations that stay in their lane.</h2>
+          <h2 className="font-serif text-4xl font-semibold">Integrations that stay in their lane.</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {[
               ["Twilio", "Messaging Service, inbound webhooks, delivery receipts.", Workflow],
@@ -209,7 +209,7 @@ export default function LandingPage() {
       <section id="security" className="border-t border-stone-200 bg-white py-20">
         <div className="mx-auto max-w-6xl px-5 md:flex md:justify-between">
           <div className="max-w-xl">
-            <h2 className="font-serif text-4xl">Security and compliance, treated as product.</h2>
+            <h2 className="font-serif text-4xl font-semibold">Security and compliance, treated as product.</h2>
             <p className="mt-4 text-ink-muted">
               Twilio credentials are encrypted at rest. Webhooks are signature-checked. STOP, HELP,
               and START are first-class events. Automated sends respect the suppression list.
@@ -227,7 +227,7 @@ export default function LandingPage() {
 
       <section className="px-5 py-20">
         <div className="mx-auto max-w-6xl rounded-card bg-ink px-8 py-14 text-white md:px-14">
-          <h2 className="max-w-xl font-serif text-4xl">Put a pulse on every number you already own.</h2>
+          <h2 className="max-w-xl font-serif text-4xl font-semibold">Put a pulse on every number you already own.</h2>
           <p className="mt-4 max-w-lg text-white/60">
             Explore the demo workspace now, or create your own and connect Twilio when you are ready.
           </p>

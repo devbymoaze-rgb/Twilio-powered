@@ -10,7 +10,9 @@ export function Logo({ className = "", light = false }: { className?: string; li
           strokeLinecap="round"
         />
       </svg>
-      <span className={`text-[16px] font-semibold tracking-tight ${light ? "text-white" : "text-ink"}`}>
+      <span
+        className={`font-serif text-[17px] font-semibold tracking-tight ${light ? "text-white" : "text-ink"}`}
+      >
         TextPulse
       </span>
     </div>

@@ -9,7 +9,7 @@ export function WorkflowVisual() {
       {steps.map((s) => (
         <div
           key={s.when}
-          className="grid items-center gap-3 rounded-2xl border border-stone-200 bg-white p-4 md:grid-cols-3"
+          className="grid items-center gap-3 rounded-card border border-stone-200 bg-white p-4 md:grid-cols-3"
         >
           <FlowChip label="WHEN" value={s.when} />
           <FlowChip label="IF" value={s.iff} />

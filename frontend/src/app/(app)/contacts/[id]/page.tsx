@@ -29,7 +29,7 @@ export default function ContactDetailPage() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-8">
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-pulse">Contact</p>
-      <h1 className="mt-2 font-serif text-4xl">{contactName(data.contact)}</h1>
+      <h1 className="mt-2 font-serif text-4xl font-semibold">{contactName(data.contact)}</h1>
       <p className="mt-2 text-ink-muted">
         {data.contact.phone} · Score {data.contact.leadScore} · {data.contact.consentStatus.replace("_", " ")}
       </p>
@@ -37,7 +37,7 @@ export default function ContactDetailPage() {
         Tags: {data.contact.tags.join(", ") || "—"} · Source: {data.contact.optInSource || "—"}
       </p>
 
-      <section className="mt-8 rounded-2xl border border-stone-200 bg-white p-5">
+      <section className="mt-8 rounded-card border border-stone-200 bg-white p-5">
         <h2 className="text-sm font-medium">Communication history</h2>
         <div className="mt-4 space-y-3">
           {data.messages.length === 0 ? (
@@ -55,7 +55,7 @@ export default function ContactDetailPage() {
         </div>
       </section>
 
-      <section className="mt-4 rounded-2xl border border-stone-200 bg-white p-5">
+      <section className="mt-4 rounded-card border border-stone-200 bg-white p-5">
         <h2 className="text-sm font-medium">Automation activity</h2>
         <div className="mt-4 space-y-2">
           {data.automations.length === 0 ? (

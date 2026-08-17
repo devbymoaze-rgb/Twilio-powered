@@ -55,7 +55,7 @@ export default function AutomationsPage() {
       <div className="flex items-end justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-pulse">Automations</p>
-          <h1 className="mt-2 font-serif text-4xl">WHEN → IF → THEN</h1>
+          <h1 className="mt-2 font-serif text-4xl font-semibold">WHEN → IF → THEN</h1>
         </div>
         <Button onClick={() => void create()}>New automation</Button>
       </div>
@@ -74,7 +74,7 @@ export default function AutomationsPage() {
       ) : (
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {items.map((a) => (
-            <Link key={a._id} href={`/automations/${a._id}`} className="rounded-2xl border border-stone-200 bg-white p-5">
+            <Link key={a._id} href={`/automations/${a._id}`} className="rounded-card border border-stone-200 bg-white p-5">
               <div className="flex justify-between">
                 <h2 className="font-medium">{a.name}</h2>
                 <span className="text-xs capitalize text-ink-faint">{a.status}</span>

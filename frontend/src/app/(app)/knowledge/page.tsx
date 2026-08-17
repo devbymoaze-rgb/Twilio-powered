@@ -46,7 +46,7 @@ export default function KnowledgePage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-8">
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-pulse">Knowledge Base</p>
-      <h1 className="mt-2 font-serif text-4xl">What the assistant is allowed to know</h1>
+      <h1 className="mt-2 font-serif text-4xl font-semibold">What the assistant is allowed to know</h1>
 
       <div className="mt-6 flex flex-wrap gap-2">
         <button
@@ -68,7 +68,7 @@ export default function KnowledgePage() {
         ))}
       </div>
 
-      <form onSubmit={create} className="mt-8 grid gap-3 rounded-2xl border border-stone-200 bg-white p-5 md:grid-cols-2">
+      <form onSubmit={create} className="mt-8 grid gap-3 rounded-card border border-stone-200 bg-white p-5 md:grid-cols-2">
         <div>
           <Label>Category</Label>
           <Select value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })}>
@@ -103,7 +103,7 @@ export default function KnowledgePage() {
       ) : (
         <div className="mt-6 grid gap-3 md:grid-cols-2">
           {articles.map((a) => (
-            <article key={a._id} className="rounded-2xl border border-stone-200 bg-white p-5">
+            <article key={a._id} className="rounded-card border border-stone-200 bg-white p-5">
               <p className="text-xs uppercase tracking-[0.12em] text-ink-faint">{a.category}</p>
               <h2 className="mt-1 font-medium">{a.title}</h2>
               <p className="mt-2 line-clamp-4 text-sm text-ink-muted">{a.content}</p>

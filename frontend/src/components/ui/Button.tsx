@@ -11,8 +11,8 @@ export function Button({
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition duration-200 disabled:cursor-not-allowed disabled:opacity-50",
-        variant === "primary" && "bg-pulse text-white hover:bg-pulse-bright",
+        "inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition duration-200 disabled:cursor-not-allowed disabled:opacity-50",
+        variant === "primary" && "bg-pulse text-white shadow-card hover:bg-pulse-bright",
         variant === "secondary" &&
           "border border-stone-200 bg-white text-ink hover:border-pulse/30 hover:bg-pulse-soft",
         variant === "ghost" && "text-ink-muted hover:bg-stone-100 hover:text-ink",

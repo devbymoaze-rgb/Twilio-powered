@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import { Manrope, Sora } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
 
-const sans = Plus_Jakarta_Sans({
+const sans = Manrope({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
 });
 
-const display = Outfit({
+const display = Sora({
   subsets: ["latin"],
-  variable: "--font-serif",
+  variable: "--font-display",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +26,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${sans.variable} ${display.variable} font-sans antialiased`}>
         {children}
-        <Toaster position="top-right" richColors />
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            className: "font-sans",
+            style: {
+              background: "#FFFFFF",
+              color: "#0F172A",
+              border: "1px solid #E2E8F0",
+            },
+          }}
+        />
       </body>
     </html>
   );

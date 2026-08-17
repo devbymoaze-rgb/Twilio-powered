@@ -44,10 +44,10 @@ export default function CampaignDetailPage() {
     <div className="mx-auto max-w-4xl px-6 py-8">
       <p className="text-xs uppercase tracking-[0.16em] text-pulse">Campaign</p>
       <div className="mt-2 flex flex-wrap items-end justify-between gap-3">
-        <h1 className="font-serif text-4xl">{campaign.name}</h1>
+        <h1 className="font-serif text-4xl font-semibold">{campaign.name}</h1>
         <span className="text-sm capitalize text-ink-muted">{campaign.status}</span>
       </div>
-      <p className="mt-4 whitespace-pre-wrap rounded-2xl border border-stone-200 bg-white p-5 text-sm">
+      <p className="mt-4 whitespace-pre-wrap rounded-card border border-stone-200 bg-white p-5 text-sm">
         {campaign.message}
       </p>
 
@@ -62,7 +62,7 @@ export default function CampaignDetailPage() {
           ["Qualified leads", s.qualifiedLeads],
           ["Targeted", s.targeted],
         ].map(([l, v]) => (
-          <div key={String(l)} className="rounded-2xl border border-stone-200 bg-white px-4 py-3">
+          <div key={String(l)} className="rounded-card border border-stone-200 bg-white px-4 py-3">
             <p className="text-xs text-ink-faint">{l}</p>
             <p className="mt-1 text-xl">{v}</p>
           </div>
@@ -83,7 +83,7 @@ export default function CampaignDetailPage() {
         ) : null}
       </div>
 
-      <div className="mt-8 rounded-2xl border border-stone-200 bg-white p-5">
+      <div className="mt-8 rounded-card border border-stone-200 bg-white p-5">
         <p className="text-sm font-medium">Test SMS</p>
         <p className="mt-1 text-xs text-ink-faint">Sends the campaign body to a single number you control.</p>
         <div className="mt-3 flex gap-2">

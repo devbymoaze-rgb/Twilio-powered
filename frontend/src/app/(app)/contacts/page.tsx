@@ -65,7 +65,7 @@ export default function ContactsPage() {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-pulse">Contacts</p>
-          <h1 className="mt-2 font-serif text-4xl">People you can text</h1>
+          <h1 className="mt-2 font-serif text-4xl font-semibold">People you can text</h1>
         </div>
         <div className="flex gap-2">
           <Button variant="secondary" onClick={() => setImportOpen(true)}>
@@ -110,7 +110,7 @@ export default function ContactsPage() {
           />
         </div>
       ) : (
-        <div className="mt-6 overflow-hidden rounded-2xl border border-stone-200 bg-white">
+        <div className="mt-6 overflow-hidden rounded-card border border-stone-200 bg-white">
           <table className="w-full text-left text-sm">
             <thead className="bg-stone-50 text-xs uppercase tracking-[0.08em] text-ink-faint">
               <tr>
@@ -145,7 +145,7 @@ export default function ContactsPage() {
       {importOpen ? (
         <div className="fixed inset-0 z-30 flex items-center justify-center bg-ink/40 p-4">
           <form
-            className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-lift"
+            className="w-full max-w-lg rounded-card bg-white p-6 shadow-lift"
             onSubmit={async (e) => {
               e.preventDefault();
               const lines = importText.trim().split(/\r?\n/);
@@ -197,7 +197,7 @@ export default function ContactsPage() {
 
       {open ? (
         <div className="fixed inset-0 z-30 flex items-center justify-center bg-ink/40 p-4">
-          <form onSubmit={create} className="w-full max-w-md rounded-2xl bg-white p-6 shadow-lift">
+          <form onSubmit={create} className="w-full max-w-md rounded-card bg-white p-6 shadow-lift">
             <h2 className="font-serif text-2xl">New contact</h2>
             <div className="mt-4 grid gap-3">
               <div>

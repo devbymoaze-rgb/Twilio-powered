@@ -38,7 +38,7 @@ export default function LoginPage() {
         <Logo light />
         <div className="relative">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-pulse-bright">Workspace</p>
-          <p className="mt-4 font-serif text-5xl leading-tight">See what needs a human today.</p>
+          <p className="mt-4 font-serif text-5xl font-semibold leading-tight">See what needs a human today.</p>
           <p className="mt-4 max-w-sm text-sm text-white/55">
             Use the demo account if you do not have a Twilio number yet.
           </p>
@@ -56,7 +56,7 @@ export default function LoginPage() {
           <div className="md:hidden">
             <Logo />
           </div>
-          <h1 className="mt-6 font-serif text-4xl">Sign in</h1>
+          <h1 className="mt-6 font-serif text-4xl font-semibold">Sign in</h1>
           <p className="mt-2 text-sm text-ink-muted">
             New here?{" "}
             <Link href="/register" className="font-medium text-pulse">

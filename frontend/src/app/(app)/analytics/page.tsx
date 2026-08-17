@@ -49,7 +49,7 @@ export default function AnalyticsPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-8">
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-pulse">Analytics</p>
-      <h1 className="mt-2 font-serif text-4xl">The last 30 days, from the database</h1>
+      <h1 className="mt-2 font-serif text-4xl font-semibold">The last 30 days, from the database</h1>
 
       <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
         {[
@@ -71,7 +71,7 @@ export default function AnalyticsPage() {
         ))}
       </div>
 
-      <section className="mt-8 rounded-2xl border border-stone-200 bg-white p-5">
+      <section className="mt-8 rounded-card border border-stone-200 bg-white p-5">
         <h2 className="text-sm font-medium">Messages and replies</h2>
         <div className="mt-4 h-72">
           {data.series.length === 0 ? (
@@ -91,7 +91,7 @@ export default function AnalyticsPage() {
         </div>
       </section>
 
-      <section className="mt-6 rounded-2xl border border-stone-200 bg-white p-5">
+      <section className="mt-6 rounded-card border border-stone-200 bg-white p-5">
         <h2 className="text-sm font-medium">Campaign performance</h2>
         <div className="mt-4 overflow-x-auto">
           <table className="w-full text-left text-sm">
