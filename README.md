@@ -76,6 +76,8 @@ Commit and push to GitHub, then in [Railway](https://railway.app) click **New Pr
 
 You can set `FRONTEND_URL` after the web service has a domain, then redeploy the API.
 
+In the API service variables, turn **off** “Available at Build Time” for `JWT_SECRET`, `ENCRYPTION_KEY`, `OPENAI_API_KEY`, and `MONGODB_URI`. They are runtime secrets. Leave `NEXT_PUBLIC_API_URL` **on** for the web service — Next.js needs it during `npm run build`.
+
 In MongoDB Atlas, allow Railway to connect: **Network Access → Add IP → `0.0.0.0/0`**.
 
 Health check: `GET /health`

@@ -1,9 +1,9 @@
 # Set this service's Root Directory to "frontend" in the Railway dashboard.
-# NEXT_PUBLIC_API_URL must be set before the first build (it is inlined at build time).
+# NEXT_PUBLIC_API_URL must be available at build time (it is inlined into the browser bundle).
 
 [build]
 builder = "NIXPACKS"
-buildCommand = "npm ci && npm run build"
+buildCommand = "npm run build"
 
 [deploy]
 startCommand = "npm start"
